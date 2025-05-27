@@ -14,7 +14,7 @@ export default function AddCart() {
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <div className="mb-6 text-center">
-        <h1 className="text-3xl font-bold text-gray-800">
+        <h1 className="head">
           Selected Product Page
         </h1>
       </div>

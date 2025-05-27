@@ -10,14 +10,18 @@ export default function Address() {
   const [pincode, setPincode] = useState("");
   const [address, setAddress] = useState("");
   const handleAddress = () => {
-    alert("Order Placed Successfully");
+    if(name.length===0 || mobile.length===0 || State.length===0 || pincode.length===0 || address.length===0){
+        alert("Fill the all Input Fields")
+    }else{
+alert("Order Placed Successfully");
     setName("");
     setMobile("");
     setState("");
     setPincode("");
     setAddress("");
+    }
+    
   };
-
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white p-6 rounded-2xl shadow-lg">
@@ -105,14 +109,14 @@ export default function Address() {
             />
           </div>
 
-          <NavLink to={"/"}>
+          
             <button
               onClick={handleAddress}
               className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
             >
               Place Order
             </button>
-          </NavLink>
+        
         </form>
       </div>
     </div>

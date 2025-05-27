@@ -4,13 +4,12 @@ import { NavLink } from "react-router";
 
 export default function Summary() {
   const AddCart = useSelector((state) => state.product.AddCart);
-
   const total = AddCart.reduce((x, item) => x + item.price, 0);
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="text-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Summary Page</h1>
+        <h1 className="text-3xl font-bold text-gray-800">Summary</h1>
       </div>
 
       <div className="bg-white p-6 rounded-xl shadow-md max-w-xl mx-auto">
@@ -35,11 +34,16 @@ export default function Summary() {
           Total Price:{" "}
           <span className="text-green-600">${total.toFixed(2)}</span>
         </h3>
-        <NavLink to={"/delivery"}>
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition">
-            CheckOut
-          </button>
-        </NavLink>
+
+        {AddCart.length === 0 ? (
+          alert("No Product Item")
+        ) : (
+          <NavLink to={"/delivery"}>
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition">
+              CheckOut
+            </button>
+          </NavLink>
+        )}
       </div>
     </div>
   );

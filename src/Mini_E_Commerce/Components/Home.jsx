@@ -8,7 +8,7 @@ export default function Home() {
   const error = useSelector((state) => state.product.error);
   const loading = useSelector((state) => state.product.loading);
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     let timer = setTimeout(() => {
       dispatch(ProductApi());
@@ -28,16 +28,19 @@ export default function Home() {
 export const ShowList = ({ ProductList, error, loading }) => {
   const dispatch = useDispatch();
   const hanldeAdd = (id) => {
+    alert('Go to selected list Link !')
     dispatch(addProduct(id));
   };
   return (
     <>
-      <div className="p-6">
-        <h1 className="text-3xl font-bold mb-6 bg-color-orange">Home Page</h1>
-        <NavLink to={"/addToCart"} style={{ color: "blue" }}>
-          Selected List
+      <div className="">
+       <div className="head">
+         <h1 className="heading">Home Page</h1>
+        <NavLink to={"/addToCart"} style={{ color: "blue"}}>
+          <strong>Selected List</strong>
         </NavLink>
-
+<br />
+       </div>
         <div>
           {loading ? (
             <h1 className="text-xl text-blue-600">Loading...</h1>

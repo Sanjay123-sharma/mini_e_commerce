@@ -1,0 +1,14 @@
+.head{
+    background-color: black;
+    color: white;
+    padding: 30px;
+    border: 2px solid white;
+   
+    font-size: large;
+    font-style:normal;
+}
+
+.heading{
+    text-align: center;
+    font-size: x-large;
+}
