@@ -8,11 +8,12 @@ export default function Summary() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <div className="text-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Summary</h1>
-      </div>
+      
 
       <div className="bg-white p-6 rounded-xl shadow-md max-w-xl mx-auto">
+        <div className="text-center mb-6">
+        <h1 className="text-3xl font-bold text-gray-800">Summary</h1>
+      </div>
         <h3 className="text-lg font-semibold text-gray-700 mb-4">
           Selected Items:{" "}
           <span className="text-blue-600">{AddCart.length}</span>

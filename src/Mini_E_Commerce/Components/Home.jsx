@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct, ProductApi } from "../Store/Slice";
 import { NavLink } from "react-router";
+import Footer from "./Footer";
 
 export default function Home() {
   const ProductList = useSelector((state) => state.product.ProductList);
   const error = useSelector((state) => state.product.error);
   const loading = useSelector((state) => state.product.loading);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     let timer = setTimeout(() => {
       dispatch(ProductApi());
@@ -33,7 +34,7 @@ export const ShowList = ({ ProductList, error, loading }) => {
   };
   return (
     <>
-      <div className="">
+      <div >
        <div className="head">
          <h1 className="heading">Home Page</h1>
         <NavLink to={"/addToCart"} style={{ color: "blue"}}>
@@ -81,6 +82,7 @@ export const ShowList = ({ ProductList, error, loading }) => {
             </div>
           )}
         </div>
+        <Footer/>
       </div>
     </>
   );

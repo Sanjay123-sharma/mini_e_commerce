@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeProduct } from "../Store/Slice";
 import Summary from "./Summary";
+import Footer from "./Footer";
 
 export default function AddCart() {
   const AddCart = useSelector((state) => state.product.AddCart);
@@ -19,7 +20,7 @@ export default function AddCart() {
         </h1>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-0 lg:grid-cols-4 gap-6">
         {AddCart.map((item) => (
           <div key={item.id} className="bg-white rounded-2xl shadow-md p-4">
             <img
@@ -44,6 +45,9 @@ export default function AddCart() {
       </div>
       <div>
         <Summary />
+      </div>
+      <div>
+        <Footer/>
       </div>
     </div>
   );

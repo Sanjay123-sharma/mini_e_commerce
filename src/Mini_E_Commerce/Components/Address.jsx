@@ -82,7 +82,6 @@ alert("Order Placed Successfully");
               <option value="Chennai">Chennai</option>
             </select>
           </div>
-
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Address:
@@ -116,7 +115,6 @@ alert("Order Placed Successfully");
             >
               Place Order
             </button>
-        
         </form>
       </div>
     </div>
