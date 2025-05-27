@@ -11,7 +11,6 @@ export default function AddCart() {
   const hanldeRemove = (id) => {
     dispatch(removeProduct(id));
   };
-
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <div className="mb-6 text-center">
@@ -19,7 +18,6 @@ export default function AddCart() {
           Selected Product Page
         </h1>
       </div>
-
       <div className="grid grid-cols-2 sm:grid-cols-0 lg:grid-cols-4 gap-6">
         {AddCart.map((item) => (
           <div key={item.id} className="bg-white rounded-2xl shadow-md p-4">

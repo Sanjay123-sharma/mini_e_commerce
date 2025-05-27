@@ -8,6 +8,7 @@ export default function Home() {
   const ProductList = useSelector((state) => state.product.ProductList);
   const error = useSelector((state) => state.product.error);
   const loading = useSelector((state) => state.product.loading);
+  const AddCart=useSelector((state)=>state.product.AddCart)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,16 +22,22 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <ShowList ProductList={ProductList} error={error} loading={loading} />
+      <ShowList ProductList={ProductList} error={error} loading={loading} AddCart={AddCart} />
     </div>
   );
 }
 
-export const ShowList = ({ ProductList, error, loading }) => {
+export const ShowList = ({ ProductList, error, loading ,AddCart}) => {
   const dispatch = useDispatch();
-  const hanldeAdd = (id) => {
-    alert('Go to selected list Link !')
-    dispatch(addProduct(id));
+  const handleAdd = (id) => {
+  let product=AddCart.find(((prod)=>prod.id.toString()==id));
+  if(product){
+        alert("Product already added");
+  }else{
+        alert('Go to selected list Link !');
+        dispatch(addProduct(id));
+  }
+
   };
   return (
     <>
@@ -72,7 +79,7 @@ export const ShowList = ({ ProductList, error, loading }) => {
                   <div>
                     <button
                       className="bg-green-400 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded "
-                      onClick={() => hanldeAdd(item.id)}
+                      onClick={() => handleAdd(item.id)}
                     >
                       ADD
                     </button>

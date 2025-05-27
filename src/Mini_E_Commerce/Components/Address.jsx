@@ -1,26 +1,24 @@
 import React from "react";
 
 import { useState } from "react";
-import { NavLink } from "react-router";
 
 export default function Address() {
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [State, setState] = useState("");
-  const [pincode, setPincode] = useState("");
+  const [pinCode, setPinCode] = useState("");
   const [address, setAddress] = useState("");
   const handleAddress = () => {
-    if(name.length===0 || mobile.length===0 || State.length===0 || pincode.length===0 || address.length===0){
+    if(name.length===0 || mobile.length===0 || State.length===0 || pinCode.length===0 || address.length===0){
         alert("Fill the all Input Fields")
     }else{
 alert("Order Placed Successfully");
     setName("");
     setMobile("");
     setState("");
-    setPincode("");
+    setPinCode("");
     setAddress("");
-    }
-    
+    }  
   };
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
@@ -42,7 +40,6 @@ alert("Order Placed Successfully");
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Mobile:
@@ -97,12 +94,12 @@ alert("Order Placed Successfully");
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              PinCode:
+              pinCode:
             </label>
             <input
               type="text"
-              value={pincode}
-              onChange={(e) => setPincode(e.target.value)}
+              value={pinCode}
+              onChange={(e) => setPinCode(e.target.value)}
               required
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
