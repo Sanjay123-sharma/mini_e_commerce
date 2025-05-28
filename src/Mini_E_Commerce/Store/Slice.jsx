@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
 export const ProductApi = createAsyncThunk("product", async () => {
   let response = await fetch("https://fakestoreapi.com/products");
   let data = response.json();
@@ -12,6 +11,8 @@ export const ProductSlice = createSlice({
     ProductList: [],
     error: null,
     AddCart: [],
+    Order:[]
+    
   },
   extraReducers: (boiler) => {
     boiler
@@ -46,13 +47,16 @@ export const ProductSlice = createSlice({
       );
     },
     removeAllProducts: (state) => {
-      let list = state.AddCart;
-      list.splice(0);
+     state.AddCart=[]
     },
-   
+    addOrder:(state)=>{
+    state.Order=[...state.AddCart]
+      
+    },
+
   },
 });
 
-export const { addProduct, removeProduct, removeAllProducts } =
+export const { addProduct, removeProduct, removeAllProducts,addOrder } =
 ProductSlice.actions;
 export default ProductSlice.reducer;

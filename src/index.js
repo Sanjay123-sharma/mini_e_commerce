@@ -4,13 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import { myPersistor, store } from "./Mini_E_Commerce/Store/store";
+import { myPersistor,  store2 } from "./Mini_E_Commerce/Store/store";
 import { PersistGate } from "redux-persist/integration/react";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={store2}>
       <PersistGate persistor={myPersistor}>
         <App />
       </PersistGate>

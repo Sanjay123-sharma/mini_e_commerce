@@ -50,7 +50,11 @@ export const ShowList = ({ ProductList, error, loading, AddCart }) => {
           <h1 className="heading">Home Page</h1>
           <NavLink to={"/cart"} style={{ color: "blue" }}>
             <strong>CART</strong>
+          </NavLink><br />
+          <NavLink to={"/confirmation"} style={{ color: "blue" }}>
+            <strong>Your Orders</strong>
           </NavLink>
+
           <br />
         </div>
         <div>

@@ -5,6 +5,7 @@ import { NavLink } from "react-router";
 export default function Summary() {
   const AddCart = useSelector((state) => state.product.AddCart);
   const total = AddCart.reduce((x, item) => x + item.price, 0);
+  
   return (
     <div className="min-h-screen bg-gray-100 p-6 ">
       <div className="bg-white p-6 rounded-xl shadow-md max-w-xl mx-auto">
@@ -40,7 +41,6 @@ export default function Summary() {
           <span className="text-green-600">${total.toFixed(2)}</span>
         </h3>
             <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition"
-            
             >
               CheckOut
             </button>
