@@ -8,7 +8,7 @@ export default function Home() {
   const ProductList = useSelector((state) => state.product.ProductList);
   const error = useSelector((state) => state.product.error);
   const loading = useSelector((state) => state.product.loading);
-  const AddCart=useSelector((state)=>state.product.AddCart)
+  const AddCart = useSelector((state) => state.product.AddCart);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,33 +22,37 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <ShowList ProductList={ProductList} error={error} loading={loading} AddCart={AddCart} />
+      <ShowList
+        ProductList={ProductList}
+        error={error}
+        loading={loading}
+        AddCart={AddCart}
+      />
     </div>
   );
 }
 
-export const ShowList = ({ ProductList, error, loading ,AddCart}) => {
+export const ShowList = ({ ProductList, error, loading, AddCart }) => {
   const dispatch = useDispatch();
   const handleAdd = (id) => {
-  let product=AddCart.find(((prod)=>prod.id.toString()==id));
-  if(product){
-        alert("Product already added");
-  }else{
-        alert('Go to selected list Link !');
-        dispatch(addProduct(id));
-  }
-
+    let product = AddCart.find((prod) => prod.id.toString() == id);
+    if (product) {
+      alert("Product already added");
+    } else {
+      alert("Go to selected list Link !");
+      dispatch(addProduct(id));
+    }
   };
   return (
     <>
-      <div >
-       <div className="head">
-         <h1 className="heading">Home Page</h1>
-        <NavLink to={"/addToCart"} style={{ color: "blue"}}>
-          <strong>Selected List</strong>
-        </NavLink>
-<br />
-       </div>
+      <div>
+        <div className="head">
+          <h1 className="heading">Home Page</h1>
+          <NavLink to={"/addToCart"} style={{ color: "blue" }}>
+            <strong>Selected List</strong>
+          </NavLink>
+          <br />
+        </div>
         <div>
           {loading ? (
             <h1 className="text-xl text-blue-600">Loading...</h1>
@@ -89,7 +93,7 @@ export const ShowList = ({ ProductList, error, loading ,AddCart}) => {
             </div>
           )}
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </>
   );

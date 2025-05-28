@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
 export default function Footer() {
   return (
-     <footer className="bg-gray-900 text-white py-7 static bottom-3">
+    <footer className="bg-gray-900 text-white py-7 static bottom-3">
       <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center">
         <p className="text-m text-gray-400 text-center">
           &copy; {new Date().getFullYear()} Made by{" "}
@@ -10,5 +10,5 @@ export default function Footer() {
         </p>
       </div>
     </footer>
-  )
+  );
 }

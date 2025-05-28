@@ -9,16 +9,22 @@ export default function Address() {
   const [pinCode, setPinCode] = useState("");
   const [address, setAddress] = useState("");
   const handleAddress = () => {
-    if(name.length===0 || mobile.length===0 || State.length===0 || pinCode.length===0 || address.length===0){
-        alert("Fill the all Input Fields")
-    }else{
-alert("Order Placed Successfully");
-    setName("");
-    setMobile("");
-    setState("");
-    setPinCode("");
-    setAddress("");
-    }  
+    if (
+      name.length === 0 ||
+      mobile.length === 0 ||
+      State.length === 0 ||
+      pinCode.length === 0 ||
+      address.length === 0
+    ) {
+      alert("Fill the all Input Fields");
+    } else {
+      alert("Order Placed Successfully");
+      setName("");
+      setMobile("");
+      setState("");
+      setPinCode("");
+      setAddress("");
+    }
   };
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
@@ -105,13 +111,12 @@ alert("Order Placed Successfully");
             />
           </div>
 
-          
-            <button
-              onClick={handleAddress}
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
-            >
-              Place Order
-            </button>
+          <button
+            onClick={handleAddress}
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+          >
+            Place Order
+          </button>
         </form>
       </div>
     </div>
