@@ -31,7 +31,6 @@ export default function Home() {
     </div>
   );
 }
-
 export const ShowList = ({ ProductList, error, loading, AddCart }) => {
   const dispatch = useDispatch();
   const handleAdd = (id) => {
@@ -39,7 +38,7 @@ export const ShowList = ({ ProductList, error, loading, AddCart }) => {
     if (product) {
       alert("Product already added");
     } else {
-      alert("Go to selected list Link !");
+      alert("Go to CART Page !");
       dispatch(addProduct(id));
     }
   };
@@ -49,7 +48,7 @@ export const ShowList = ({ ProductList, error, loading, AddCart }) => {
         <div className="head">
           <h1 className="heading">Home Page</h1>
           <NavLink to={"/addToCart"} style={{ color: "blue" }}>
-            <strong>Selected List</strong>
+            <strong>CART</strong>
           </NavLink>
           <br />
         </div>
@@ -85,7 +84,7 @@ export const ShowList = ({ ProductList, error, loading, AddCart }) => {
                       className="bg-green-400 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded "
                       onClick={() => handleAdd(item.id)}
                     >
-                      ADD
+                     ADD to CART
                     </button>
                   </div>
                 </div>

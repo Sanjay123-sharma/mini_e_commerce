@@ -8,14 +8,14 @@ import { NavLink } from "react-router";
 export default function AddCart() {
   const AddCart = useSelector((state) => state.product.AddCart);
   const dispatch = useDispatch();
-
-  const hanldeRemove = (id) => {
+  
+  const handleRemove = (id) => {
     dispatch(removeProduct(id));
   };
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <div className="mb-6  text-center">
-        <h1 className="head">Selected Product Page</h1>
+        <h1 className="head">Cart Page</h1>
         <NavLink to={"/"}>
           {" "}
           <strong style={{ color: "blue" }}>Home</strong>
@@ -36,7 +36,7 @@ export default function AddCart() {
             <p className="text-gray-600">Rating: {item.rating}</p>
 
             <button
-              onClick={() => hanldeRemove(item.id)}
+              onClick={() => handleRemove(item.id)}
               className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
             >
               Remove

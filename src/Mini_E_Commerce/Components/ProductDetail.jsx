@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router";
+import Footer from "./Footer";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -10,8 +11,8 @@ export default function ProductDetail() {
     <div>
       <div className="min-h-screen bg-gray-100 p-6">
         {/* Header Section */}
-        <div className="max-w-4xl mx-auto mb-6 border-b border-gray-300 pb-4 flex items-center justify-between">
-          <h1 className="text-3xl font-bold text-gray-800">
+        <div className="head">
+          <h1 className="heading">
             Product Detail Page
           </h1>
           <NavLink
@@ -60,7 +61,8 @@ export default function ProductDetail() {
               </p>
             </div>
           </div>
-        )}
+        )} <br />
+        <Footer/>
       </div>
     </div>
   );

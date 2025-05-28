@@ -30,7 +30,7 @@ export const ProductSlice = createSlice({
   reducers: {
     addProduct: (state, action) => {
       let list = state.ProductList;
-      let product = list.find((item) => item.id.toString()==action.payload);
+      let product = list.find((item) => item.id===action.payload);
       state.AddCart.push({
         title: product.title,
         id: product.id,
@@ -42,7 +42,7 @@ export const ProductSlice = createSlice({
     },
     removeProduct: (state, action) => {
       state.AddCart = state.AddCart.filter(
-        (item) => item.id.toString() != action.payload
+        (item) => item.id !== action.payload
       );
     },
   },
