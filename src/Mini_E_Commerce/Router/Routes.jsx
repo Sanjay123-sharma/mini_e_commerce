@@ -16,7 +16,7 @@ export default function Routes() {
           element:<ProductDetail/>
         },
         {
-          path:'/addToCart',
+          path:'/cart',
           element:<AddCart/>
         },
         {

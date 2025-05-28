@@ -19,7 +19,7 @@ export default function Home() {
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [dispatch]);
   return (
     <div>
       <ShowList
@@ -34,7 +34,7 @@ export default function Home() {
 export const ShowList = ({ ProductList, error, loading, AddCart }) => {
   const dispatch = useDispatch();
   const handleAdd = (id) => {
-    let product = AddCart.find((prod) => prod.id.toString() == id);
+    let product = AddCart.find((prod) => prod.id === id);
     if (product) {
       alert("Product already added");
     } else {
@@ -47,7 +47,7 @@ export const ShowList = ({ ProductList, error, loading, AddCart }) => {
       <div>
         <div className="head">
           <h1 className="heading">Home Page</h1>
-          <NavLink to={"/addToCart"} style={{ color: "blue" }}>
+          <NavLink to={"/cart"} style={{ color: "blue" }}>
             <strong>CART</strong>
           </NavLink>
           <br />
@@ -84,7 +84,7 @@ export const ShowList = ({ ProductList, error, loading, AddCart }) => {
                       className="bg-green-400 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded "
                       onClick={() => handleAdd(item.id)}
                     >
-                     ADD to CART
+                      ADD to CART
                     </button>
                   </div>
                 </div>

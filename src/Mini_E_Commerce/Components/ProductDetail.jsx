@@ -6,15 +6,13 @@ import Footer from "./Footer";
 export default function ProductDetail() {
   const { id } = useParams();
   const ProductList = useSelector((state) => state.product.ProductList);
-  const Product = ProductList.find((prod) => prod.id == id);
+  const Product = ProductList.find((prod) => prod.id.toString() === id);
   return (
     <div>
       <div className="min-h-screen bg-gray-100 p-6">
         {/* Header Section */}
         <div className="head">
-          <h1 className="heading">
-            Product Detail Page
-          </h1>
+          <h1 className="heading">Product Detail Page</h1>
           <NavLink
             to="/"
             className="text-blue-600 hover:text-blue-800 font-medium transition duration-200"
@@ -22,7 +20,6 @@ export default function ProductDetail() {
             ← Home
           </NavLink>
         </div>
-
         {/* Product Section */}
         {!Product ? (
           <div className="max-w-2xl mx-auto bg-white border border-red-300 text-red-600 p-6 rounded-lg shadow">
@@ -61,8 +58,9 @@ export default function ProductDetail() {
               </p>
             </div>
           </div>
-        )} <br />
-        <Footer/>
+        )}{" "}
+        <br />
+        <Footer />
       </div>
     </div>
   );

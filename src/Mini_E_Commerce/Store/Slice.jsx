@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const ProductApi = createAsyncThunk("product", async () => {
-  let response = await fetch('https://fakestoreapi.com/products');
+  let response = await fetch("https://fakestoreapi.com/products");
   let data = response.json();
   return data;
 });
@@ -30,7 +30,7 @@ export const ProductSlice = createSlice({
   reducers: {
     addProduct: (state, action) => {
       let list = state.ProductList;
-      let product = list.find((item) => item.id===action.payload);
+      let product = list.find((item) => item.id === action.payload);
       state.AddCart.push({
         title: product.title,
         id: product.id,
