@@ -16,7 +16,10 @@ export default function AddCart() {
     <div className="p-6 bg-gray-100 min-h-screen">
       <div className="mb-6  text-center">
         <h1 className="head">Selected Product Page</h1>
-        <NavLink to={'/'}> <strong style={{color:'blue'}}>Home</strong></NavLink>
+        <NavLink to={"/"}>
+          {" "}
+          <strong style={{ color: "blue" }}>Home</strong>
+        </NavLink>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-0 lg:grid-cols-4 gap-6">
         {AddCart.map((item) => (
