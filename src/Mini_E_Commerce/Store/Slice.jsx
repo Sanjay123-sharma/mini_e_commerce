@@ -49,9 +49,10 @@ export const ProductSlice = createSlice({
       let list = state.AddCart;
       list.splice(0);
     },
+   
   },
 });
 
 export const { addProduct, removeProduct, removeAllProducts } =
-  ProductSlice.actions;
+ProductSlice.actions;
 export default ProductSlice.reducer;

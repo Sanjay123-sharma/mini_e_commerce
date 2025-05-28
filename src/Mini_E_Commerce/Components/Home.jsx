@@ -40,6 +40,7 @@ export const ShowList = ({ ProductList, error, loading, AddCart }) => {
     } else {
       alert("Go to CART Page !");
       dispatch(addProduct(id));
+      
     }
   };
   return (

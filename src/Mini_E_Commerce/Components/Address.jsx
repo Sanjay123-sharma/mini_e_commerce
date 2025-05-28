@@ -3,24 +3,28 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { removeAllProducts } from "../Store/Slice";
+import { Navigate, useNavigate } from "react-router";
 
 export default function Address() {
   const [name, setName] = useState("");
-  const [mobile, setMobile] = useState("");
+  // const [mobile, setMobile] = useState("");
   const [State, setState] = useState("");
   const [pinCode, setPinCode] = useState("");
   const [address, setAddress] = useState("");
+  const [landmark, setLandMark] = useState("");
+
+  const Navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const handleAddress = (e) => {
     e.preventDefault();
-
-    alert("Order Placed Successfully");
     setName("");
-    setMobile("");
     setState("");
     setPinCode("");
     setAddress("");
+
+    Navigate("/confirmation");
   };
   const handleBtn = () => {
     dispatch(removeAllProducts());
@@ -41,20 +45,6 @@ export default function Address() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              required
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Mobile:
-            </label>
-            <input
-              type="number"
-              value={mobile}
-              onChange={(e) => setMobile(e.target.value)}
-              minLength={10}
-              maxLength={11}
               required
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -92,6 +82,18 @@ export default function Address() {
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
+              required
+              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              LandMark:
+            </label>
+            <input
+              type="text"
+              value={landmark}
+              onChange={(e) => setLandMark(e.target.value)}
               required
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />

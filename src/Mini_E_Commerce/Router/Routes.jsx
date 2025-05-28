@@ -4,6 +4,7 @@ import Home from '../Components/Home'
 import ProductDetail from '../Components/ProductDetail'
 import AddCart from '../Components/AddCart'
 import Address from '../Components/Address'
+import OrderDetail from '../Components/OrderDetail'
 
 export default function Routes() {
     const routes=createBrowserRouter([
@@ -22,6 +23,10 @@ export default function Routes() {
         {
           path:'/delivery',
           element:<Address/>
+        },
+        {
+          path:'/confirmation',
+          element:<OrderDetail/>
         }
     ])
   return (
