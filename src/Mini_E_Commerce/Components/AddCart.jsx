@@ -8,7 +8,6 @@ import { NavLink } from "react-router";
 export default function AddCart() {
   const AddCart = useSelector((state) => state.product.AddCart);
   const dispatch = useDispatch();
-  
   const handleRemove = (id) => {
     dispatch(removeProduct(id));
   };

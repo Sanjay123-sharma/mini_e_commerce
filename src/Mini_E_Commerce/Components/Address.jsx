@@ -1,6 +1,8 @@
 import React from "react";
 
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { removeAllProducts } from "../Store/Slice";
 
 export default function Address() {
   const [name, setName] = useState("");
@@ -8,23 +10,20 @@ export default function Address() {
   const [State, setState] = useState("");
   const [pinCode, setPinCode] = useState("");
   const [address, setAddress] = useState("");
-  const handleAddress = () => {
-    if (
-      name.length === 0 ||
-      mobile.length === 0 ||
-      State.length === 0 ||
-      pinCode.length === 0 ||
-      address.length === 0
-    ) {
-      alert("Fill the all Input Fields");
-    } else {
-      alert("Order Placed Successfully");
-      setName("");
-      setMobile("");
-      setState("");
-      setPinCode("");
-      setAddress("");
-    }
+  const dispatch = useDispatch();
+
+  const handleAddress = (e) => {
+    e.preventDefault();
+
+    alert("Order Placed Successfully");
+    setName("");
+    setMobile("");
+    setState("");
+    setPinCode("");
+    setAddress("");
+  };
+  const handleBtn = () => {
+    dispatch(removeAllProducts());
   };
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
@@ -33,7 +32,7 @@ export default function Address() {
           Enter Address
         </h1>
 
-        <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+        <form onSubmit={handleAddress} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Full Name:
@@ -51,7 +50,7 @@ export default function Address() {
               Mobile:
             </label>
             <input
-              type="text"
+              type="number"
               value={mobile}
               onChange={(e) => setMobile(e.target.value)}
               minLength={10}
@@ -103,7 +102,7 @@ export default function Address() {
               pinCode:
             </label>
             <input
-              type="text"
+              type="number"
               value={pinCode}
               onChange={(e) => setPinCode(e.target.value)}
               required
@@ -112,7 +111,7 @@ export default function Address() {
           </div>
 
           <button
-            onClick={handleAddress}
+            onClick={() => handleBtn()}
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
           >
             Place Order
